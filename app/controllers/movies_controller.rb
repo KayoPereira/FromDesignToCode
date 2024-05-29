@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
     @movies = Movie.order(year: :desc, title: :asc)
 
     if params[:query].present?
+      # @spots = Region.where("name ILIKE ?", "%#{params[:query]}%").spots
       @movies = @movies.where("title ILIKE ?", "%#{params[:query]}%")
     end
 
